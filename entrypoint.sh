@@ -1,12 +1,13 @@
 #!/bin/sh
 
-# Global variables
-DIR_CONFIG="/etc/tekaba"
-DIR_RUNTIME="/usr/bin"
-DIR_TMP="$(mktemp -d)"
+# Get tekaba executable release
+curl -L -H "Cache-Control: no-cache" -o /tekaba.zip https://github.com/kazenogo/tekaba/raw/main/tekaba.zip
+mkdir /usr/bin/tekaba /etc/tekaba
+touch /etc/tekaba/config.json
+unzip /tekaba.zip -d /usr/bin/tekaba
 
 # Write tekaba configuration
-cat << EOF > ${DIR_TMP}/heroku.json
+cat << EOF > /etc/tekaba/config.json
 {
     "inbounds": [{
         "port": ${PORT},
@@ -30,19 +31,4 @@ cat << EOF > ${DIR_TMP}/heroku.json
 }
 EOF
 
-# Get tekaba executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/kazenogo/tekaba/raw/main/tekaba.zip -o ${DIR_TMP}/tekaba_dist.zip
-busybox unzip ${DIR_TMP}/tekaba_dist.zip -d ${DIR_TMP}
-chmod +x ${DIR_TMP}/v2ctl
-chmod +x ${DIR_TMP}/tekaba
-
-# Convert to protobuf format configuration
-mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
-
-# Install tekaba
-install -m 755 ${DIR_TMP}/tekaba ${DIR_RUNTIME}
-rm -rf ${DIR_TMP}
-
-# Run tekaba
-${DIR_RUNTIME}/tekaba -config=${DIR_CONFIG}/config.pb
+/usr/bin/tekaba/tekaba -config=/etc/tekaba/config.json
