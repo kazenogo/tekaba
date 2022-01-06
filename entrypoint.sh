@@ -15,14 +15,14 @@ cat << EOF > /etc/tekaba/config.json
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "60491148-dc85-451b-9b67-badd656cb5fb",
-                "alterId": "128"
+                "id": "${ID}",
+                "alterId": ${AID}
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "/"
+                "path": "${WSPATH}"
             }
         }
     }],
