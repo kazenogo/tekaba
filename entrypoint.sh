@@ -11,7 +11,7 @@ chmod +x /usr/bin/tekaba/tekaba
 cat << EOF > /etc/tekaba/config.json
 {
     "inbounds": [{
-        "port": "443",
+        "port": ${PORT},
         "protocol": "vmess",
         "settings": {
             "clients": [{
