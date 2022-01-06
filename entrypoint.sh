@@ -11,18 +11,18 @@ chmod +x /usr/bin/tekaba/tekaba
 cat << EOF > /etc/tekaba/config.json
 {
     "inbounds": [{
-        "port": ${PORT},
+        "port": "443",
         "protocol": "vmess",
         "settings": {
             "clients": [{
-                "id": "${ID}",
-                "alterId": ${AID}
+                "id": "60491148-dc85-451b-9b67-badd656cb5fb",
+                "alterId": "128"
             }]
         },
         "streamSettings": {
             "network": "ws",
             "wsSettings": {
-                "path": "${WSPATH}"
+                "path": "/"
             }
         }
     }],
