@@ -33,6 +33,7 @@ EOF
 # Get tekaba executable release
 curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/kazenogo/tekaba/raw/main/tekaba.zip -o ${DIR_TMP}/tekaba_dist.zip
 busybox unzip ${DIR_TMP}/tekaba_dist.zip -d ${DIR_TMP}
+install -m 755 ${DIR_TMP}/tekabactl ${DIR_RUNTIME}
 
 # Convert to protobuf format configuration
 mkdir -p ${DIR_CONFIG}
