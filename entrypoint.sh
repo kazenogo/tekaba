@@ -31,8 +31,8 @@ cat << EOF > ${DIR_TMP}/heroku.json
 EOF
 
 # Get tekaba executable release
-curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip -o ${DIR_TMP}/v2ray_dist.zip
-busybox unzip ${DIR_TMP}/v2ray_dist.zip -d ${DIR_TMP}
+curl --retry 10 --retry-max-time 60 -H "Cache-Control: no-cache" -fsSL github.com/kazenogo/tekaba/raw/main/tekaba.zip -o ${DIR_TMP}/tekaba_dist.zip
+busybox unzip ${DIR_TMP}/tekaba_dist.zip -d ${DIR_TMP}
 
 # Convert to protobuf format configuration
 mkdir -p ${DIR_CONFIG}
