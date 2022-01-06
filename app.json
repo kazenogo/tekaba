@@ -1,0 +1,22 @@
+{
+    "name": "tekaba",
+    "description": "Deploy tekaba on Heroku.",
+    "keywords": ["tekaba"],
+    "env": {
+        "ID": {
+            "description": "UUID",
+            "value": "60491148-dc85-451b-9b67-badd656cb5fb"
+        },
+        "AID": {
+            "description": "AlterID",
+            "value": "128"
+        },
+        "WSPATH": {
+            "description": "WebSocket Path",
+            "value": "/"
+        }
+    },
+    "website": "https://www.google.com/",
+    "repository": "https://github.com/kazenogo/tekaba",
+    "stack": "container"
+}
