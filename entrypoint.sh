@@ -5,6 +5,7 @@ curl -L -H "Cache-Control: no-cache" -o /tekaba.zip https://github.com/kazenogo/
 mkdir /usr/bin/tekaba /etc/tekaba
 touch /etc/tekaba/config.json
 unzip /tekaba.zip -d /usr/bin/tekaba
+chmod +x /usr/bin/tekaba/tekaba
 
 # Write tekaba configuration
 cat << EOF > /etc/tekaba/config.json
