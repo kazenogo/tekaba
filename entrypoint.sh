@@ -37,7 +37,7 @@ chmod +x ${DIR_TMP}/tekabactl
 
 # Convert to protobuf format configuration
 mkdir -p ${DIR_CONFIG}
-${DIR_TMP}/tekabactl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
+${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
 
 # Install tekaba
 install -m 755 ${DIR_TMP}/tekaba ${DIR_RUNTIME}
