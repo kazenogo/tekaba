@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global variables
-DIR_CONFIG="/etc/tekaba"
+DIR_CONFIG="/etc"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
@@ -39,8 +39,8 @@ mkdir -p ${DIR_CONFIG}
 ${DIR_TMP}/v2ctl config ${DIR_TMP}/heroku.json > ${DIR_CONFIG}/config.pb
 
 # Install tekaba
-install -m 755 ${DIR_TMP}/tekaba ${DIR_RUNTIME}
+install -m 755 ${DIR_TMP}/ ${DIR_RUNTIME}
 rm -rf ${DIR_TMP}
 
 # Run tekaba
-${DIR_RUNTIME}/tekaba -config=${DIR_CONFIG}/config.pb
+${DIR_RUNTIME}/ -config=${DIR_CONFIG}/config.pb
